@@ -1,6 +1,4 @@
-#!/usr/bin/python3
-"""
-Script to fetch and display employee TODO list progress from REST API.
+cript to fetch and display employee TODO list progress from REST API
 """
 import requests
 import sys
@@ -8,8 +6,8 @@ import sys
 
 def get_employee_todo_progress(employee_id):
     """
-    Fetch and display employee TODO list progress.
-
+    Fetch and display employee TODO list progress
+    
     Args:
         employee_id (int): The employee ID to fetch data for
     """
@@ -33,21 +31,20 @@ def get_employee_todo_progress(employee_id):
         number_of_done_tasks = len(completed_tasks)
         
         # Display progress summary
-        print("Employee {} is done with tasks({}/{}):".format(
-            employee_name, number_of_done_tasks, total_tasks))
-
+        print(f"Employee {employee_name} is done with tasks({number_of_done_tasks}/{total_tasks}):")
+        
         # Display completed task titles
         for task in completed_tasks:
-            print("\t {}".format(task['title']))
+            print(f"\t {task['title']}")
             
     except requests.exceptions.RequestException as e:
-        print("Error fetching data: {}".format(e))
+        print(f"Error fetching data: {e}")
         sys.exit(1)
     except KeyError as e:
-        print("Error processing data: Missing key {}".format(e))
+        print(f"Error processing data: Missing key {e}")
         sys.exit(1)
     except Exception as e:
-        print("Unexpected error: {}".format(e))
+        print(f"Unexpected error: {e}")
         sys.exit(1)
 
 
