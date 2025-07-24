@@ -1,4 +1,6 @@
-cript to fetch and display employee TODO list progress from REST API
+#!/usr/bin/python3
+"""
+Script to fetch and display employee TODO list progress from REST API
 """
 import requests
 import sys
